@@ -15,10 +15,12 @@ class TestFindTodos(unittest.TestCase):
             self.assertFalse(has_todo(self.test_directory + file), msg="Found TODO in this file, but it doesn't exist!")
 
     def test_find_todos(self):
+        # Capture prints to stdout
         f = io.StringIO()
         with redirect_stdout(f):
             find_todos(self.test_directory)
         output = f.getvalue().strip().splitlines()
+        
         self.assertEqual(len(self.files_with_todos), len(output), msg="Numbers of expected and actual output lines are different!")
         for file in output:
             file = file.replace('\\', '/').replace(self.test_directory, '')
