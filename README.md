@@ -35,5 +35,6 @@ python -m unittest discover
 ```
 
 ## Future Work
+* Testing via dynamic creation of directories and files
 * Make into pip package for easy installation
 * Integration tests
